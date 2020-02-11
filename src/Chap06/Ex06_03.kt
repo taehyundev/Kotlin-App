@@ -8,5 +8,42 @@ package Chap06
 //이벤트의 발생 및 전달 클래스
 
 fun main(){
-
+EventPrinter().start()
 }
+
+interface EventListener{
+    fun onnEvent(count: Int)
+}
+class Counter2(var listener: EventListener){
+
+    fun count() {
+        for(i in 1..100){
+            if(i % 5 == 0) listener.onnEvent(i)
+        }
+    }
+}
+/*
+class EventPrinter: EventListener{
+    override fun onnEvent(count: Int) {
+        print("${count}-")
+    }
+    fun start(){
+        val counter = Counter2(this)
+        counter.count()
+    }
+}
+
+ */
+
+class EventPrinter{
+    fun start(){
+        val counter = Counter2(object : EventListener{
+            override fun onnEvent(count: Int) {
+                print("${count}-")
+            }
+        })
+        counter.count()
+    }
+}
+//익명 객체라고 함 바로 위의 클래스 안의 형태를
+//5의 배수마다 이벤트 발생
