@@ -65,4 +65,4 @@ begin : 20.02.08  ~ (앱을 만들기 위해서 코틀린 공부) ~ fin : 20.02.
     * internal은 사용하지않음
 
 
-![title](Chap06_03%20Image.PNG){: width="100%" height="100%"}
+![title](Chap06_03%20Image.PNG)
